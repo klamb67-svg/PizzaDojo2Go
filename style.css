@@ -1,0 +1,74 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: 'Lora', serif;
+    height: 100vh;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('assets/images/oven1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Logo Styling */
+.logo {
+    width: 100%;
+    max-width: 450px;
+    margin-bottom: 2rem;
+}
+
+/* Headline Text */
+.headline {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    margin-bottom: 2rem;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    font-family: 'Playfair Display', serif;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

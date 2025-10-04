@@ -23,11 +23,25 @@ body {
     animation: fadeIn 2s ease-in-out;
 }
 
-/* Logo Styling */
-.logo {
-    width: 100%;
-    max-width: 450px;
+/* Text-based Logo Styling */
+.text-logo {
+    text-align: center;
     margin-bottom: 2rem;
+    font-family: 'Cinzel', serif;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.text-logo h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+}
+
+.text-logo h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
 }
 
 /* Headline Text */
@@ -70,5 +84,20 @@ body {
     }
     to {
         opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .text-logo h1 {
+        font-size: 3rem;
+    }
+
+    .text-logo h2 {
+        font-size: 1.5rem;
+    }
+
+    .headline {
+        font-size: 2rem;
     }
 }

@@ -15,33 +15,25 @@ body {
     overflow: hidden;
 }
 
+/* New Top Header */
+.top-header {
+    margin-bottom: 10rem; /* Creates space for the background image */
+}
+
+.site-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
 /* Main Container */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     animation: fadeIn 2s ease-in-out;
-}
-
-/* Text-based Logo Styling */
-.text-logo {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-family: 'Cinzel', serif;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-}
-
-.text-logo h1 {
-    font-size: 4.5rem;
-    font-weight: 700;
-    margin: 0;
-    line-height: 1;
-}
-
-.text-logo h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0;
 }
 
 /* Headline Text */
@@ -89,11 +81,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .text-logo h1 {
-        font-size: 3rem;
-    }
-
-    .text-logo h2 {
+    .site-title {
         font-size: 1.5rem;
     }
 

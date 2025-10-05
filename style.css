@@ -4,7 +4,7 @@ body {
     font-family: 'Lora', serif;
     height: 100vh;
     color: #fff;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('assets/images/oven1.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('assets/images/background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

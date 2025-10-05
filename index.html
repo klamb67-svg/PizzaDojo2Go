@@ -1,109 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pizza Dojo 2Go - Coming Soon</title>
-  <link rel="stylesheet" href="style.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Lora', serif;
-      color: white;
-      text-align: center;
-      height: 100vh;
-      overflow: hidden;
+    :root {
+      --overlay-top: 0.25;   /* lighter up top so the flame pops */
+      --overlay-bot: 0.65;   /* a bit darker near the bottom for contrast */
+      --title-size: clamp(2rem, 6vw, 4rem);
+      --tagline-size: clamp(1.1rem, 3.2vw, 2rem);
     }
 
-    /* Fullscreen video background */
-    #bg-video {
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Lora', serif;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+      background: #000;
+    }
+
+    /* Background video fills the viewport */
+    #bgVideo {
       position: fixed;
-      right: 0;
-      bottom: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       min-width: 100%;
       min-height: 100%;
       width: auto;
       height: auto;
-      z-index: -1;
       object-fit: cover;
-      filter: brightness(0.55);
+      z-index: -2;
+      background: #000; /* in case video takes a moment to start */
+    }
+
+    /* Soft gradient overlay so text is readable, but flame still shows */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,var(--overlay-top)),
+        rgba(0,0,0,var(--overlay-bot))
+      );
+      z-index: -1;
+      pointer-events: none;
     }
 
     .container {
-      position: relative;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 2;
+      min-height: 100dvh; /* mobile-safe viewport */
+      display: grid;
+      place-items: center;
+      grid-template-rows: auto 1fr auto;
+      gap: 2rem;
+      padding: 4dvh 5vw;
     }
 
     .site-title {
-      font-size: 3.8rem;
-      font-weight: 700;
       margin: 0;
-      text-transform: none;
+      font-size: var(--title-size);
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
       letter-spacing: 1px;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      text-transform: none; /* true mixed case */
+      text-shadow: 0 2px 18px rgba(0,0,0,.6);
     }
 
     .headline {
-      font-size: 1.8rem;
-      margin: 1.2rem 0 2rem;
+      margin: 0;
+      font-size: var(--tagline-size);
       font-weight: 400;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+      text-shadow: 0 2px 14px rgba(0,0,0,.6);
     }
 
     .actions {
       display: flex;
-      justify-content: center;
       gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .btn {
-      border: 2px solid white;
-      padding: 0.6rem 1.5rem;
+      border: 2px solid #fff;
+      padding: .7rem 1.6rem;
       text-decoration: none;
-      color: white;
+      color: #fff;
       font-size: 1.1rem;
-      transition: all 0.3s ease;
+      transition: all .25s ease;
+      border-radius: .4rem;
+      background: rgba(0,0,0,.15);
+      backdrop-filter: blur(2px);
     }
-
-    .btn:hover {
-      background: white;
-      color: black;
-    }
-
-    @media (max-width: 768px) {
-      .site-title { font-size: 2.6rem; }
-      .headline { font-size: 1.4rem; }
-    }
+    .btn:hover { background: #fff; color: #000; }
   </style>
 </head>
-
 <body>
-  <video autoplay muted loop playsinline id="bg-video">
-    <source src="assets/images/oven3.mp4" type="video/mp4">
+  <!-- Poster provides a nice still frame if the video is still loading -->
+  <video id="bgVideo" autoplay muted playsinline loop poster="/assets/images/oven2.jpg">
+    <source src="/oven3.mp4" type="video/mp4" />
   </video>
+  <div class="overlay" aria-hidden="true"></div>
 
   <div class="container">
-    <header class="top-header">
+    <header>
       <h1 class="site-title">PizzaDojo2Go.com</h1>
     </header>
+
     <main>
       <h2 class="headline">Coming in 2026 to a community near you!</h2>
-      <div class="actions">
-        <a href="about.html" class="btn">About Us</a>
-        <a href="contact.html" class="btn">Contact Us</a>
-      </div>
     </main>
+
+    <nav class="actions" aria-label="Primary">
+      <a href="about.html" class="btn">About Us</a>
+      <a href="contact.html" class="btn">Contact Us</a>
+    </nav>
   </div>
 </body>
 </html>
-
-

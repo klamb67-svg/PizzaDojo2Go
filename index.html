@@ -24,7 +24,7 @@
       font-family: 'Lora', serif;
       color: #fff;
       text-align: center;
-      overflow-x: hidden;
+      overflow: hidden;
       background: #000;
     }
 
@@ -55,11 +55,13 @@
     }
 
     .container {
+      position: relative;
       height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 3vh 5vw 6vh;
+      z-index: 2;
     }
 
     header {
@@ -74,15 +76,15 @@
       text-shadow: 0 2px 18px rgba(0,0,0,.6);
     }
 
-    main {
+    .bottom-section {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .headline {
-      margin-bottom: 2rem;
       font-size: var(--tagline-size);
       font-weight: 400;
       text-shadow: 0 2px 14px rgba(0,0,0,.6);
@@ -126,13 +128,13 @@
       <h1 class="site-title">PizzaDojo2Go.com</h1>
     </header>
 
-    <main>
+    <div class="bottom-section">
       <h2 class="headline">Coming in 2026 to a community near you!</h2>
       <nav class="actions" aria-label="Primary">
         <a href="about.html" class="btn">About Us</a>
         <a href="contact.html" class="btn">Contact Us</a>
       </nav>
-    </main>
+    </div>
   </div>
 </body>
 </html>

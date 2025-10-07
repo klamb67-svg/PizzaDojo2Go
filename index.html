@@ -28,7 +28,7 @@
       background: #000;
     }
 
-    /* ✅ Fix background stacking + transform issue */
+    /* ✅ Stable, reliable background video setup */
     #bgVideo {
       position: fixed;
       top: 0;
@@ -36,7 +36,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: -2;
+      z-index: 0;
       background-color: #000;
     }
 
@@ -48,10 +48,10 @@
       height: 100%;
       background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, var(--overlay-top)),
-        rgba(0, 0, 0, var(--overlay-bot))
+        rgba(0,0,0,var(--overlay-top)),
+        rgba(0,0,0,var(--overlay-bot))
       );
-      z-index: -1;
+      z-index: 1;
       pointer-events: none;
     }
 
@@ -74,7 +74,7 @@
       font-size: var(--title-size);
       font-weight: 700;
       font-family: 'Playfair Display', serif;
-      text-shadow: 0 2px 18px rgba(0, 0, 0, .6);
+      text-shadow: 0 2px 18px rgba(0,0,0,.6);
     }
 
     .bottom-section {
@@ -88,7 +88,7 @@
     .headline {
       font-size: var(--tagline-size);
       font-weight: 400;
-      text-shadow: 0 2px 14px rgba(0, 0, 0, .6);
+      text-shadow: 0 2px 14px rgba(0,0,0,.6);
     }
 
     .actions {
@@ -106,7 +106,7 @@
       font-size: 1.1rem;
       transition: all .25s ease;
       border-radius: .4rem;
-      background: rgba(0, 0, 0, .15);
+      background: rgba(0,0,0,.15);
       backdrop-filter: blur(2px);
     }
 
@@ -118,7 +118,7 @@
 </head>
 
 <body>
-  <!-- ✅ make sure these paths are correct relative to THIS file -->
+  <!-- ✅ make sure this path is correct and file names match exactly -->
   <video id="bgVideo" autoplay muted playsinline loop poster="assets/images/oven2.jpg">
     <source src="assets/images/oven3.mp4" type="video/mp4" />
   </video>

@@ -11,8 +11,8 @@
 
   <style>
     :root {
-      --overlay-top: 0.25;   /* lighter up top so the flame pops */
-      --overlay-bot: 0.65;   /* a bit darker near the bottom for contrast */
+      --overlay-top: 0.25;
+      --overlay-bot: 0.65;
       --title-size: clamp(2rem, 6vw, 4rem);
       --tagline-size: clamp(1.1rem, 3.2vw, 2rem);
     }
@@ -21,9 +21,6 @@
       height: 100%;
       margin: 0;
       padding: 0;
-    }
-
-    body {
       font-family: 'Lora', serif;
       color: #fff;
       text-align: center;
@@ -31,7 +28,6 @@
       background: #000;
     }
 
-    /* Background video fills the viewport */
     #bgVideo {
       position: fixed;
       top: 50%;
@@ -43,10 +39,9 @@
       height: auto;
       object-fit: cover;
       z-index: -2;
-      background: #000; /* fallback while video loads */
+      background: #000;
     }
 
-    /* Soft gradient overlay for readability */
     .overlay {
       position: fixed;
       inset: 0;
@@ -59,16 +54,16 @@
       pointer-events: none;
     }
 
-    /* Centered layout adjustments */
     .container {
       height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0 5vw;
-      position: relative;
-      top: 6vh; /* shifts everything slightly lower */
+      justify-content: space-between;
+      padding: 3vh 5vw 6vh;
+    }
+
+    header {
+      margin-top: 1rem;
     }
 
     .site-title {
@@ -76,12 +71,18 @@
       font-size: var(--title-size);
       font-weight: 700;
       font-family: 'Playfair Display', serif;
-      letter-spacing: 1px;
       text-shadow: 0 2px 18px rgba(0,0,0,.6);
     }
 
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
     .headline {
-      margin-top: 3rem; /* push headline lower under title */
+      margin-bottom: 2rem;
       font-size: var(--tagline-size);
       font-weight: 400;
       text-shadow: 0 2px 14px rgba(0,0,0,.6);
@@ -92,7 +93,6 @@
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: 2.5rem; /* bring buttons closer to text */
     }
 
     .btn {
@@ -128,12 +128,11 @@
 
     <main>
       <h2 class="headline">Coming in 2026 to a community near you!</h2>
+      <nav class="actions" aria-label="Primary">
+        <a href="about.html" class="btn">About Us</a>
+        <a href="contact.html" class="btn">Contact Us</a>
+      </nav>
     </main>
-
-    <nav class="actions" aria-label="Primary">
-      <a href="about.html" class="btn">About Us</a>
-      <a href="contact.html" class="btn">Contact Us</a>
-    </nav>
   </div>
 </body>
 </html>

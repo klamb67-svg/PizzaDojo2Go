@@ -19,10 +19,11 @@
 
     html, body {
       height: 100%;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: 'Lora', serif;
       color: #fff;
       text-align: center;
@@ -42,10 +43,10 @@
       height: auto;
       object-fit: cover;
       z-index: -2;
-      background: #000; /* in case video takes a moment to start */
+      background: #000; /* fallback while video loads */
     }
 
-    /* Soft gradient overlay so text is readable, but flame still shows */
+    /* Soft gradient overlay for readability */
     .overlay {
       position: fixed;
       inset: 0;
@@ -58,13 +59,16 @@
       pointer-events: none;
     }
 
+    /* Centered layout adjustments */
     .container {
-      min-height: 100dvh; /* mobile-safe viewport */
-      display: grid;
-      place-items: center;
-      grid-template-rows: auto 1fr auto;
-      gap: 2rem;
-      padding: 4dvh 5vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 5vw;
+      position: relative;
+      top: 6vh; /* shifts everything slightly lower */
     }
 
     .site-title {
@@ -73,12 +77,11 @@
       font-weight: 700;
       font-family: 'Playfair Display', serif;
       letter-spacing: 1px;
-      text-transform: none; /* true mixed case */
       text-shadow: 0 2px 18px rgba(0,0,0,.6);
     }
 
     .headline {
-      margin: 0;
+      margin-top: 3rem; /* push headline lower under title */
       font-size: var(--tagline-size);
       font-weight: 400;
       text-shadow: 0 2px 14px rgba(0,0,0,.6);
@@ -89,6 +92,7 @@
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
+      margin-top: 2.5rem; /* bring buttons closer to text */
     }
 
     .btn {
@@ -102,14 +106,19 @@
       background: rgba(0,0,0,.15);
       backdrop-filter: blur(2px);
     }
-    .btn:hover { background: #fff; color: #000; }
+
+    .btn:hover {
+      background: #fff;
+      color: #000;
+    }
   </style>
 </head>
+
 <body>
-  <!-- Poster provides a nice still frame if the video is still loading -->
   <video id="bgVideo" autoplay muted playsinline loop poster="assets/images/oven2.jpg">
-  <source src="assets/images/oven3.mp4" type="video/mp4" />
-</video>
+    <source src="assets/images/oven3.mp4" type="video/mp4" />
+  </video>
+
   <div class="overlay" aria-hidden="true"></div>
 
   <div class="container">
